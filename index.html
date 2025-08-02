@@ -19,24 +19,41 @@
     <div class="page-wrapper">
       <!------- Header / Branding ------->
       <header class="site-header">
-        <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
-        <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
+        <div class="header-content">
+          <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
+          <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
+        </div>
       </header>
 
-      <!-- Category Filter -->
+      <!-- Category Filter and Search -->
       <div class="search-section">
-        <select id="categoryFilter">
-          <option value="" disabled selected>Choose a Category</option>
-          <option value="cleanser">Cleansers</option>
-          <option value="moisturizer">Moisturizers & Treatments</option>
-          <option value="haircare">Haircare</option>
-          <option value="makeup">Makeup</option>
-          <option value="hair color">Hair Color</option>
-          <option value="hair styling">Hair Styling</option>
-          <option value="men's grooming">Men's Grooming</option>
-          <option value="suncare">Suncare</option>
-          <option value="fragrance">Fragrance</option>
-        </select>
+        <div class="filters-container">
+          <select id="categoryFilter">
+            <option value="" disabled selected>Choose a Category</option>
+            <option value="cleanser">Cleansers</option>
+            <option value="moisturizer">Moisturizers & Treatments</option>
+            <option value="haircare">Haircare</option>
+            <option value="makeup">Makeup</option>
+            <option value="hair color">Hair Color</option>
+            <option value="hair styling">Hair Styling</option>
+            <option value="men's grooming">Men's Grooming</option>
+            <option value="suncare">Suncare</option>
+            <option value="fragrance">Fragrance</option>
+          </select>
+          
+          <div class="search-input-container">
+            <i class="fa-solid fa-search search-icon"></i>
+            <input 
+              type="text" 
+              id="productSearch" 
+              placeholder="Search products by name or keyword..." 
+              class="search-input"
+            />
+            <button id="clearSearch" class="clear-search-btn" title="Clear search" style="display: none;">
+              <i class="fa-solid fa-times"></i>
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Products Grid -->
@@ -44,7 +61,12 @@
 
       <!-- Selected Products -->
       <div class="selected-products">
-        <h2>Selected Products</h2>
+        <div class="selected-products-header">
+          <h2>Selected Products</h2>
+          <button id="clearAllBtn" class="clear-all-btn" onclick="clearAllSelectedProducts()" title="Clear all selected products" style="display: none;">
+            <i class="fa-solid fa-trash"></i> Clear All
+          </button>
+        </div>
         <div id="selectedProductsList"></div>
         <button id="generateRoutine" class="generate-btn">
           <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
